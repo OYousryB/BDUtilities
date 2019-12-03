@@ -2,7 +2,6 @@ package benchmark
 
 import java.sql.{Connection, DriverManager, SQLException}
 
-import com.utilities.SparkBuilder
 import org.apache.spark.sql._
 import org.apache.spark.SparkContext
 
@@ -117,6 +116,5 @@ object BenchmarkQuery {
         s") ON DUPLICATE KEY UPDATE time=${r._2}")
       )
     }
-    SparkBuilder.stop()
   }
 }
