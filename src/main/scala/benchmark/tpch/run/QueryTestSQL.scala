@@ -26,7 +26,12 @@ object QueryTestSQL {
 
     val engine = "spark"
 
-    val queryIndices = 1 to 22
+    val queryIndices =
+      if (args.length > 1)
+        Seq(args(1).toInt)
+      else
+        1 to 22
+
     val source = new FileInputStream("src/main/scala/benchmark/tpch/schema/tpch_sql_queries_raw.txt")
     val buf = new Array[Byte](source.available())
     source.read(buf)

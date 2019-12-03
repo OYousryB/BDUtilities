@@ -24,8 +24,8 @@ object QueryTestDataFrame {
     val engine = "spark"
 
     val queryIndices =
-      if (args.length > 2)
-        Seq(args(2).toInt)
+      if (args.length > 1)
+        Seq(args(1).toInt)
       else
         1 to 22
 
