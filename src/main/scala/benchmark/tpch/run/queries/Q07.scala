@@ -29,7 +29,7 @@ class Q07 extends BenchmarkQuery {
       .select($"n_name".as("supp_nation"), $"l_orderkey", $"l_extendedprice", $"l_discount", $"l_shipdate")
 
     fnation.join(customer, $"n_nationkey" === customer("c_nationkey"))
-      .join(order, $"c_custkey" === order("o_custkey"))
+      .join(orders, $"c_custkey" === orders("o_custkey"))
       .select($"n_name".as("cust_nation"), $"o_orderkey")
       .join(supNation, $"o_orderkey" === supNation("l_orderkey"))
       .filter($"supp_nation" === "FRANCE" && $"cust_nation" === "GERMANY"

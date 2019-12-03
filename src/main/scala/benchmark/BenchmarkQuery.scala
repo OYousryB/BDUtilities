@@ -14,7 +14,7 @@ abstract class BenchmarkQuery {
     className.split("\\.").last.replaceAll("\\$", "")
   }
 
-  def getName(): String = escapeClassName(this.getClass.getName)
+  def getName: String = escapeClassName(this.getClass.getName)
 
   /**
    *  implemented in children classes and hold the actual query
@@ -49,13 +49,13 @@ object BenchmarkQuery {
     for (query <- queries) {
 
       println("\n" + "*"*80)
-      println("*"*20 + s"   ${query._2}")
+      println("*"*20 + s"   ${query._2}   " + "*"*20)
       println("*"*80 + "\n")
 
       //      query._1.explain(true)
+      //      query._1.show()
 
       val t0 = System.nanoTime()
-      //      query._1.show()
       outputDF(query._1, outputDir, query._2)
       val t1 = System.nanoTime()
 
@@ -70,6 +70,8 @@ object BenchmarkQuery {
     val times = executeQueries(benchmark, queries, outputDir)
 
     times.foreach(println)
+    val totalTime = times.map(_._2).sum
+    println(benchmark.toUpperCase + "_" + s"Total, $totalTime")
 
     Class.forName("com.mysql.cj.jdbc.Driver")
     var connection: Connection = null

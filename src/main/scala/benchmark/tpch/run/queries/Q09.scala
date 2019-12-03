@@ -27,7 +27,7 @@ class Q09 extends BenchmarkQuery {
     linePart.join(natSup, $"l_suppkey" === natSup("s_suppkey"))
       .join(partsupp, $"l_suppkey" === partsupp("ps_suppkey")
         && $"l_partkey" === partsupp("ps_partkey"))
-      .join(order, $"l_orderkey" === order("o_orderkey"))
+      .join(orders, $"l_orderkey" === orders("o_orderkey"))
       .select($"n_name", getYear($"o_orderdate").as("o_year"),
         expr($"l_extendedprice", $"l_discount", $"ps_supplycost", $"l_quantity").as("amount"))
       .groupBy($"n_name", $"o_year")

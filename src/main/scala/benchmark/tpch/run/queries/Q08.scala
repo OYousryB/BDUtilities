@@ -21,7 +21,7 @@ class Q08 extends BenchmarkQuery {
     val isBrazil = udf { (x: String, y: Double) => if (x == "BRAZIL") y else 0 }
 
     val fregion = region.filter($"r_name" === "AMERICA")
-    val forder = order.filter($"o_orderdate" <= "1996-12-31" && $"o_orderdate" >= "1995-01-01")
+    val forder = orders.filter($"o_orderdate" <= "1996-12-31" && $"o_orderdate" >= "1995-01-01")
     val fpart = part.filter($"p_type" === "ECONOMY ANODIZED STEEL")
 
     val nat = nation.join(supplier, $"n_nationkey" === supplier("s_nationkey"))

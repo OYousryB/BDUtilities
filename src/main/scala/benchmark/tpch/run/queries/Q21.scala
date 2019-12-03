@@ -32,7 +32,7 @@ class Q21 extends BenchmarkQuery {
       .agg(countDistinct($"l_suppkey").as("suppkey_count"), max($"l_suppkey").as("suppkey_max"))
       .select($"l_orderkey".as("key"), $"suppkey_count", $"suppkey_max")
 
-    val forder = order.select($"o_orderkey", $"o_orderstatus")
+    val forder = orders.select($"o_orderkey", $"o_orderstatus")
       .filter($"o_orderstatus" === "F")
 
     nation.filter($"n_name" === "SAUDI ARABIA")

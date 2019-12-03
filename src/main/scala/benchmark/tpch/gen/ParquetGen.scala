@@ -42,7 +42,7 @@ object ParquetGen {
       "region" -> sc.textFile(inputDir + "/region/*").map(_.split(separator)).map(p =>
         Region(long(p(0)), str(p(1)), str(p(2)))).toDF(),
 
-      "order" -> sc.textFile(inputDir + "/orders/*").map(_.split(separator)).map(p =>
+      "orders" -> sc.textFile(inputDir + "/orders/*").map(_.split(separator)).map(p =>
         Order(long(p(0)), long(p(1)), str(p(2)), double(p(3)), str(p(4)), str(p(5)), str(p(6)), long(p(7)), str(p(8)))).toDF(),
 
       "part" -> sc.textFile(inputDir + "/part/*").map(_.split(separator)).map(p =>

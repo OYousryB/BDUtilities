@@ -20,7 +20,7 @@ class Q10 extends BenchmarkQuery {
 
     val flineitem = lineitem.filter($"l_returnflag" === "R")
 
-    order.filter($"o_orderdate" < "1994-01-01" && $"o_orderdate" >= "1993-10-01")
+    orders.filter($"o_orderdate" < "1994-01-01" && $"o_orderdate" >= "1993-10-01")
       .join(customer, $"o_custkey" === customer("c_custkey"))
       .join(nation, $"c_nationkey" === nation("n_nationkey"))
       .join(flineitem, $"o_orderkey" === flineitem("l_orderkey"))

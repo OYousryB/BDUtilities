@@ -19,7 +19,7 @@ class Q03 extends BenchmarkQuery {
     val decrease = udf { (x: Double, y: Double) => x * (1 - y) }
 
     val fcust = customer.filter($"c_mktsegment" === "BUILDING")
-    val forders = order.filter($"o_orderdate" < "1995-03-15")
+    val forders = orders.filter($"o_orderdate" < "1995-03-15")
     val flineitems = lineitem.filter($"l_shipdate" > "1995-03-15")
 
     fcust.join(forders, $"c_custkey" === forders("o_custkey"))

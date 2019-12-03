@@ -32,7 +32,7 @@ do
 
     cleanup
     echo "Benchmarking TPCH SCLAE $SF on Spark using 'benchmark.tpch.run.QueryTest $BENCHMARK_ARGS'"
-    $SPARK_HOME/bin/spark-submit --class benchmark.tpch.run.QueryTest \
+    $SPARK_HOME/bin/spark-submit --class benchmark.tpch.run.$BENCHMARK \
         --master $MASTER \
         --total-executor-cores $TOTAL_EXECUTOR_CORES \
         --conf spark.executor.cores=$CORES_PER_EXECUTOR \
@@ -45,4 +45,4 @@ do
 done
 
 echo "Spark Result"
-grep TPCH_Q $DB_UTILITIES/logs/tpch/$SF/s$SF-c$TOTAL_EXECUTOR_CORES-spark.txt
+grep TPCH_ $DB_UTILITIES/logs/tpch/$SF/s$SF-c$TOTAL_EXECUTOR_CORES-spark.txt

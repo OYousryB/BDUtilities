@@ -20,7 +20,7 @@ class Q05 extends BenchmarkQuery {
 
     lineitem
         .join(supplier, $"l_suppkey" === supplier("s_suppkey"))
-        .join(order, $"l_orderkey" === order("o_orderkey"))
+        .join(orders, $"l_orderkey" === orders("o_orderkey"))
         .join(customer, $"o_custkey" === customer("c_custkey"))
         .join(nation, $"s_nationkey" === nation("n_nationkey") && $"c_nationkey" === nation("n_nationkey"))
         .join(region, $"n_regionkey" === region("r_regionkey"))

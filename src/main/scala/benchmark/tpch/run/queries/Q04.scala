@@ -16,7 +16,7 @@ class Q04 extends BenchmarkQuery {
     import sqlContext.implicits._
     import tpc._
 
-    val forders = order.filter($"o_orderdate" >= "1993-07-01" && $"o_orderdate" < "1993-10-01")
+    val forders = orders.filter($"o_orderdate" >= "1993-07-01" && $"o_orderdate" < "1993-10-01")
     val flineitems = lineitem.filter($"l_commitdate" < $"l_receiptdate")
       .select($"l_orderkey")
       .distinct

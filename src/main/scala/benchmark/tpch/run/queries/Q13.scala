@@ -18,8 +18,8 @@ class Q13 extends BenchmarkQuery {
 
     val special = udf { (x: String) => x.matches(".*special.*requests.*") }
 
-    customer.join(order, $"c_custkey" === order("o_custkey")
-      && !special(order("o_comment")), "left_outer")
+    customer.join(orders, $"c_custkey" === orders("o_custkey")
+      && !special(orders("o_comment")), "left_outer")
       .groupBy($"o_custkey")
       .agg(count($"o_orderkey").as("c_count"))
       .groupBy($"c_count")

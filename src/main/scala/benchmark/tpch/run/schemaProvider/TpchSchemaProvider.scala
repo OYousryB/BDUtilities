@@ -12,7 +12,7 @@ abstract class TpchSchemaProvider extends SchemaProvider{
   def lineitem: DataFrame = dfMap("lineitem")
   def nation: DataFrame = dfMap("nation")
   def region: DataFrame = dfMap("region")
-  def order: DataFrame = dfMap("order")
+  def orders: DataFrame = dfMap("orders")
   def part: DataFrame = dfMap("part")
   def partsupp: DataFrame = dfMap("partsupp")
   def supplier: DataFrame = dfMap("supplier")

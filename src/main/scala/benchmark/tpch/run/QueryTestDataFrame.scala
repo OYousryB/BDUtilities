@@ -4,17 +4,16 @@ import benchmark.BenchmarkQuery
 import benchmark.tpch.run.schemaProvider.VanillaTpchSchemaProvider
 import com.utilities.SparkBuilder
 
-object QueryTest {
+object QueryTestDataFrame {
 
   def main(args: Array[String]): Unit = {
 
-    if (args.length < 2) {
+    if (args.length < 1) {
       println("Missing args")
       return
     }
 
     val inputDir = args(0)
-    val provider = args(1)
     val outputDir = inputDir + "/output"
 
     val schemaProvider = {

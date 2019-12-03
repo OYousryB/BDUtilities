@@ -25,7 +25,7 @@ class Q12 extends BenchmarkQuery {
       $"l_commitdate" < $"l_receiptdate" &&
       $"l_shipdate" < $"l_commitdate" &&
       $"l_receiptdate" >= "1994-01-01" && $"l_receiptdate" < "1995-01-01")
-      .join(order, $"l_orderkey" === order("o_orderkey"))
+      .join(orders, $"l_orderkey" === orders("o_orderkey"))
       .select($"l_shipmode", $"o_orderpriority")
       .groupBy($"l_shipmode")
       .agg(sum(highPriority($"o_orderpriority")).as("sum_highorderpriority"),
