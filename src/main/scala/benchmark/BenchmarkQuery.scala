@@ -2,6 +2,7 @@ package benchmark
 
 import java.sql.{Connection, DriverManager, SQLException}
 
+import com.utilities.SparkBuilder
 import org.apache.spark.sql._
 import org.apache.spark.SparkContext
 
@@ -72,6 +73,7 @@ object BenchmarkQuery {
     times.foreach(println)
     val totalTime = times.map(_._2).sum
     println(benchmark.toUpperCase + "_" + s"Total, $totalTime")
+    SparkBuilder.stop()
 
     Class.forName("com.mysql.cj.jdbc.Driver")
     var connection: Connection = null
