@@ -8,13 +8,13 @@ object QueryTestDataFrame {
 
   def main(args: Array[String]): Unit = {
 
-    if (args.length < 1) {
+    if (args.length < 2) {
       println("Missing args")
       return
     }
 
     val inputDir = args(0)
-    val outputDir = inputDir + "/output"
+    val outputDir = args(1)
 
     val schemaProvider = {
       SparkBuilder.clearOptimizations()
@@ -24,8 +24,8 @@ object QueryTestDataFrame {
     val engine = "spark"
 
     val queryIndices =
-      if (args.length > 1)
-        Seq(args(1).toInt)
+      if (args.length > 2)
+        Seq(args(2).toInt)
       else
         1 to 22
 

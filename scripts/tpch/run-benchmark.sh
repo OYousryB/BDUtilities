@@ -30,11 +30,11 @@ do
         fi
     }
 
-    cleanup
+#    cleanup
     echo "Benchmarking TPCH SCLAE $SF on Spark using 'benchmark.tpch.run.QueryTest $BENCHMARK_ARGS'"
     $SPARK_HOME/bin/spark-submit --class benchmark.tpch.run.$BENCHMARK \
         --master $MASTER \
-        --total-executor-cores $TOTAL_EXECUTOR_CORES \
+        --conf spark.executor.instances=$EXECUTOR_INSTANCES \
         --conf spark.executor.cores=$CORES_PER_EXECUTOR \
         --conf spark.driver.memory=$DRIVER_MEMORY \
         --conf spark.executor.memory=$MEMORY_PER_EXECUTOR \
