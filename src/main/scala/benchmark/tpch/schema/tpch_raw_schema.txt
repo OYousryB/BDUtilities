@@ -1,0 +1,16 @@
+customer
+(`c_custkey` INT,`c_name` STRING,`c_address` STRING,`c_nationkey` INT,`c_phone` STRING,`c_acctbal` FLOAT,`c_mktsegment` STRING,`c_comment` STRING)
+orders
+(`o_orderkey` INT,`o_custkey` INT,`o_orderstatus` STRING,`o_totalprice` FLOAT,`o_orderdate` DATE,`o_orderpriority` STRING,`o_clerk` STRING,`o_shippriority` INT,`o_comment` STRING)
+nation
+(`n_nationkey` INT,`n_name` STRING,`n_regionkey` INT,`n_comment` STRING)
+region
+(`r_regionkey` INT,`r_name` STRING,`r_comment` STRING)
+part
+(`p_partkey` INT,`p_name` STRING,`p_mfgr` STRING,`p_brand` STRING,`p_type` STRING,`p_size` INT,`p_container` STRING,`p_retailprice` FLOAT,`p_comment` STRING)
+partsupp
+(`ps_partkey` INT,`ps_suppkey` INT,`ps_availqty` INT,`ps_supplycost` FLOAT,`ps_comment` STRING)
+lineitem
+(`l_orderkey` INT,`l_partkey` INT,`l_suppkey` INT,`l_linenumber` INT,`l_quantity` FLOAT,`l_extendedprice` FLOAT,`l_discount` FLOAT,`l_tax` FLOAT,`l_returnflag` STRING,`l_linestatus` STRING,`l_shipdate` DATE,`l_commitdate` DATE,`l_receiptdate` DATE,`l_shipinstruct` STRING,`l_shipmode` STRING,`l_comment` STRING)
+supplier
+(`s_suppkey` INT,`s_name` STRING,`s_address` STRING,`s_nationkey` INT,`s_phone` STRING,`s_acctbal` FLOAT,`s_comment` STRING)
