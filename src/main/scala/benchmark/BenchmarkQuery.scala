@@ -61,9 +61,11 @@ object BenchmarkQuery {
       val t1 = System.nanoTime()
 
       val elapsed = (t1 - t0) / 1000000000.0 // second
+      val df: DataFrame = SparkBuilder.spark.read.parquet(outputDir+ "/" + query._2)
+      df.show()
+
       results += Tuple2(benchmark.toUpperCase + "_" + query._2, elapsed)
     }
-
     results
   }
 

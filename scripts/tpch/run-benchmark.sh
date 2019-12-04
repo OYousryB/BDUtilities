@@ -30,7 +30,7 @@ do
         fi
     }
 
-#    cleanup
+    cleanup
     echo "Benchmarking TPCH SCLAE $SF on Spark using 'benchmark.tpch.run.QueryTest $BENCHMARK_ARGS'"
     $SPARK_HOME/bin/spark-submit --class benchmark.tpch.run.$BENCHMARK \
         --master $MASTER \
