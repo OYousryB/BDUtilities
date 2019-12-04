@@ -70,6 +70,8 @@ mergeHeaderAllBodyChunks()
   done
 }
 
+#################################### MAIN ######################################
+
 for SF in $SCALES
 do
   OUTPUT=$DATA_DB/tpch/$SF
