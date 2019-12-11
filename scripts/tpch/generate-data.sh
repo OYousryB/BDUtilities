@@ -39,8 +39,8 @@ mergeHeaderBody()
   local table=$1
 
   local header=${TPCH_EXTRA_INFO}/headers/${table}.txt
-  local target=${TPCH_PATH}/dbgen/${table}.txt
-  local source=${TPCH_PATH}/dbgen/${table}.tbl
+  local target=${DSS_PATH}/${table}.txt
+  local source=${DSS_PATH}/${table}.tbl
 
    if [[ $WITH_HEADERS -eq 1 ]]
    then
@@ -56,13 +56,13 @@ mergeHeaderAllBodyChunks()
   local chunks=$2
 
   local header=${TPCH_EXTRA_INFO}/headers/${table}.txt
-  local target=${TPCH_PATH}/dbgen/${table}.txt
+  local target=${DSS_PATH}/${table}.txt
    if [[ $WITH_HEADERS -eq 1 ]]
    then
     cp $header $target
    fi
   for i in $(seq 1 $chunks); do
-    local source=${TPCH_PATH}/dbgen/${table}.tbl.$i
+    local source=${DSS_PATH}/${table}.tbl.$i
     if [ -e $source ]; then
       cat $source >> $target
       rm $source
@@ -120,28 +120,28 @@ do
 
     # move to target directories
     mkdir $TBL_DIR/nation
-    mv nation.* $TBL_DIR/nation
+    mv ${DSS_PATH}/nation.* $TBL_DIR/nation
 
     mkdir $TBL_DIR/region
-    mv region.* $TBL_DIR/region
+    mv ${DSS_PATH}/region.* $TBL_DIR/region
 
     mkdir $TBL_DIR/lineitem
-    mv lineitem.* $TBL_DIR/lineitem
+    mv ${DSS_PATH}/lineitem.* $TBL_DIR/lineitem
 
     mkdir $TBL_DIR/orders
-    mv orders.* $TBL_DIR/orders
+    mv ${DSS_PATH}/orders.* $TBL_DIR/orders
 
     mkdir $TBL_DIR/supplier
-    mv supplier.* $TBL_DIR/supplier
+    mv ${DSS_PATH}/supplier.* $TBL_DIR/supplier
 
     mkdir $TBL_DIR/part
-    mv part.* $TBL_DIR/part
+    mv ${DSS_PATH}/part.* $TBL_DIR/part
 
     mkdir $TBL_DIR/partsupp
-    mv partsupp.* $TBL_DIR/partsupp
+    mv ${DSS_PATH}/partsupp.* $TBL_DIR/partsupp
 
     mkdir $TBL_DIR/customer
-    mv customer.* $TBL_DIR/customer
+    mv ${DSS_PATH}/customer.* $TBL_DIR/customer
 
     endMerge=$SECONDS
     echo Generation time $(($endGen - $start)) seconds.
