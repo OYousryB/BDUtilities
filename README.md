@@ -16,13 +16,13 @@ https://github.com/gregrahn/tpcds-kit
 ## Download Spark with version 2.3 or higher
 Optional: Configure spark env if needed 
 
+## Update the params
+
 ### cp scripts/env.txt.template scripts/env.txt
 
 ### cp scripts/params.txt.template scripts/params.txt
 
-### cp scripts/spark-conf.txt.template scripts/spark-conf.txt
-
-### Update the params 
+### cp scripts/spark-conf.txt.template scripts/spark-conf.txt 
 
 ### Execute scripts
 
