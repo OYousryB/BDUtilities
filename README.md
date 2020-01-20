@@ -24,5 +24,4 @@ Start up spark master and worker
 
 ### Execute scripts
 
-ex ./scripts/tpch/generate-all.sh
-ex ./scripts/tpcds/generate-all.sh
+example: ./scripts/tpch/generate-all.sh
