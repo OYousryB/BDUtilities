@@ -21,3 +21,8 @@ Start up spark master and worker
 ### cp scripts/spark-conf.txt.template scripts/spark-conf.txt
 
 ### Update the params 
+
+### Execute scripts
+
+ex ./scripts/tpch/generate-all.sh
+ex ./scripts/tpcds/generate-all.sh
